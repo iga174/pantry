@@ -1,0 +1,73 @@
+.pantry-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+}
+
+.add-button {
+    display: inline-block;
+    border: none;
+    background: #e75480;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.add-button:hover {
+    background: #d9436d;
+}
+
+.category {
+    margin-bottom: 35px;
+}
+
+.category h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.pantry-items {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.pantry-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.pantry-item:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    font-weight: 600;
+}
+
+.item-quantity {
+    color: #666;
+}
+
+.empty-pantry {
+    color: #666;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 25px;
+    color: #e75480;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}

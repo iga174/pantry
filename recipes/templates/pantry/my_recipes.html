@@ -1,0 +1,43 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/my_recipes.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="my-recipes-page">
+
+<div class="my-recipes-header">
+
+    <h1>My Recipes</h1>
+
+    <a href="{% url 'add_recipe' %}" class="add-recipe-button">Add Recipe</a>
+
+</div>
+
+{% if recipes %}
+
+    <div class="recipes-container">
+
+        {% for recipe in recipes %}
+
+            <a href="{% url 'my_recipe_detail' recipe.id %}" class="recipe-card">
+                <h2>{{ recipe.name }}</h2>
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+{% else %}
+
+    <p class="no-recipes">You haven't added any recipes yet.</p>
+
+{% endif %}
+
+</div>
+
+{% endblock %}
+

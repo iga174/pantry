@@ -1,0 +1,152 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/add_recipe.css' %}">
+{% endblock %}
+
+{% block body %}
+
+
+<div class="add-recipe-page">
+
+    <div class="add-recipe-card">
+
+        <h1>Add Recipe</h1>
+
+        <form action="{% url 'add_recipe' %}" method="post" class="recipe-form">
+
+            {% csrf_token %}
+
+            <label for="name">Recipe Name</label>
+
+            <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Recipe name"
+                required>
+
+            <label>Ingredients</label>
+
+            <div id="ingredients">
+
+                <div class="ingredient-row">
+
+                    <input
+                        type="text"
+                        name="ingredient"
+                        placeholder="Ingredient"
+                        autocomplete="off"
+                        required>
+
+                    <input
+                        type="number"
+                        name="quantity"
+                        placeholder="Quantity"
+                        autocomplete="off"
+                        step="0.01"
+                        required>
+
+                    <select name="unit" required>
+                        <option value="" disabled selected>Unit</option>
+                        <option value="g">g</option>
+                        <option value="tbs">tbs</option>
+                        <option value="ml">ml</option>
+                        <option value="tsp">tsp</option>
+                        <option value="pcs">pcs</option>
+                        <option value="pinch">Pinch</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button type="button" class="add-ingredient-button" onclick="addIngredient()">
+                + Add Ingredient
+            </button>
+
+            <label for="instructions">Instructions</label>
+
+            <textarea
+                id="instructions"
+                name="instructions"
+                placeholder="Describe how to prepare the recipe..."
+                required>
+            </textarea>
+
+            <input
+                class="submit-button"
+                type="submit"
+                value="Add Recipe">
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+    function addIngredient() {
+        const ingredients = document.getElementById("ingredients");
+
+        const row = document.createElement("div");
+
+        row.className = "ingredient-row";
+
+        row.innerHTML = `
+            <input
+                type="text"
+                name="ingredient"
+                placeholder="Ingredient"
+                autocomplete="off"
+                required>
+
+            <input
+                type="number"
+                name="quantity"
+                placeholder="Quantity"
+                autocomplete="off"
+                step="0.01"
+                required>
+
+            <select name="unit" required>
+                <option value="" disabled selected>Unit</option>
+                <option value="g">g</option>
+                <option value="ml">ml</option>
+                <option value="tbs">tbs</option>
+                <option value="tsp">tsp</option>
+                <option value="pcs">pcs</option>
+                <option value="pinch">Pinch</option>
+            </select>
+        `;
+
+        ingredients.appendChild(row);
+
+        const newIngredient = row.querySelector(
+            'input[name="ingredient"]'
+        );
+
+        const newQuantity = row.querySelector(
+            'input[name="quantity"]'
+        );
+
+        const newUnit = row.querySelector(
+            'select[name="unit"]'
+        );
+
+        newIngredient.value = "";
+        newQuantity.value = "";
+        newUnit.selectedIndex = 0;
+
+        setTimeout(function() {
+            newIngredient.value = "";
+            newQuantity.value = "";
+            newUnit.selectedIndex = 0;}, 100);
+
+    }
+
+</script>
+
+{% endblock %}

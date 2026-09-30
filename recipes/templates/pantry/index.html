@@ -1,0 +1,65 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/index.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="page">
+
+    <h1 class="section-title">Our Recommendation</h1>
+
+    <a href="{% url 'recipe_detail' meal.idMeal %}" class="recommendation-card">
+
+    <img
+        class="recommendation-image" src="{{ meal.strMealThumb }}" alt="{{ meal.strMeal }}">
+
+    <div class="recommendation-content">
+
+        <h2>{{ meal.strMeal }}</h2>
+
+        <p>{{ meal.strCategory }} • {{ meal.strArea }}</p>
+
+    </div>
+
+    </a>
+    
+    <a href="{% url 'recipes' %}" class="action-card">
+
+        <img src="{% static 'recipes/icons/recipes.png' %}" class="action-icon" alt="Recipes">
+
+        <div class="action-text">
+            <h3>View Recipes</h3>
+            <p>Browse all our available recipes.</p>
+        </div>
+
+    </a>
+
+    <a href="{% url 'my_recipes' %}" class="action-card">
+
+
+    <img src="{% static 'recipes/icons/my_recipes.png' %}" class="action-icon" alt="My Recipes">
+
+    <div class="action-text">
+        <h3>My Recipes</h3>
+        <p>View and add your own recipes.</p>
+    </div>
+
+    </a>
+
+    <a href="{% url 'pantry' %}" class="action-card">
+
+        <img src="{% static 'recipes/icons/pantry.png' %}" class="action-icon" alt="Pantry">
+
+        <div class="action-text">
+            <h3>Pantry</h3>
+            <p>View and manage the ingredients in your pantry.</p>
+        </div>
+
+    </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/shopping_list.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="shopping-page">
+
+    <div class="shopping-card">
+
+        <h1>Shopping List</h1>
+
+        <div class="recipe-name">
+            {{ meal.strMeal }}
+        </div>
+
+        {% if shopping_list %}
+
+            <ul class="shopping-list">
+
+                {% for item in shopping_list %}
+
+                    <li class="shopping-item">
+
+                        <span class="shopping-ingredient">{{ item.ingredient }}</span>
+                    
+                        {% if item.quantity %}
+                            <span class="shopping-quantity">{{ item.quantity }} {{ item.unit }}</span>
+                        {% elif item.measure %}
+                            <span class="shopping-quantity">{{ item.measure }}</span>
+                        {% endif %}
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+            {% if manual_check %}
+
+                <div class="manual-check">
+                    Please check the shopping list manually.
+                    Some ingredients or measurements could not be
+                    matched automatically.
+                </div>
+
+            {% endif %}
+
+        {% else %}
+
+            <p class="no-items">You already have everything you need for this recipe.</p>
+
+        {% endif %}
+
+        <a href="{% url 'recipe_detail' meal.idMeal %}" class="back-button"> ← Back to Recipe</a>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

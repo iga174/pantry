@@ -1,0 +1,100 @@
+.recipe-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #e75480;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #d9436d;
+}
+
+.recipe-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.recipe-content {
+    padding: 25px;
+}
+
+.recipe-content h1 {
+    margin: 0 0 8px;
+    font-size: 32px;
+}
+
+.recipe-info {
+    margin: 0;
+    color: #666;
+}
+
+.recipe-section {
+    margin-top: 30px;
+}
+
+.recipe-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.ingredients {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.ingredients li {
+    padding: 13px 18px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.ingredients li:last-child {
+    border-bottom: none;
+}
+
+.instructions {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 20px;
+    color: #444;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.shopping-button {
+    border: none;
+    background: #e75480;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.shopping-button:hover {
+    background: #d9436d;
+}
+
+h2 {
+    color: #e75480;
+}

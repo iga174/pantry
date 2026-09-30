@@ -1,0 +1,71 @@
+.shopping-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.shopping-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.shopping-card h1 {
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+.recipe-name {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.shopping-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.shopping-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.shopping-item:last-child {
+    border-bottom: none;
+}
+
+.shopping-ingredient {
+    font-weight: 600;
+}
+
+.shopping-quantity {
+    color: #666;
+}
+
+.manual-check {
+    margin-top: 25px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: #fff5f8;
+    color: #666;
+}
+
+.no-items {
+    color: #666;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #e75480;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    text-decoration: underline;
+}

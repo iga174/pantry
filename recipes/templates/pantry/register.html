@@ -1,0 +1,52 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/register.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="register-page">
+
+<div class="register-card">
+
+    <h2>Register</h2>
+
+    {% if message %}
+        <div class="register-message">{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post" class="register-form">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input autofocus type="text" name="username" placeholder="Username">
+        </div>
+
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Email Address">
+        </div>
+
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <input type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+
+        <input class="register-button" type="submit" value="Register">
+
+    </form>
+
+    <div class="login-link">Already have an account?
+        <a href="{% url 'login' %}">Log In here.</a>
+    </div>
+
+</div>
+
+</div>
+
+{% endblock %}

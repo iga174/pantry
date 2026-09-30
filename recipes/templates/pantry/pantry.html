@@ -1,0 +1,54 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/pantry.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="pantry-page">
+
+    <a href="{% url 'index' %}" class="back-button"> ← Back Home </a>
+
+    {% if categories %}
+
+        {% for category in categories %}
+
+            <div class="category">
+
+                <h2>{{ category.name }}</h2>
+
+                <div class="pantry-items">
+
+                    {% for item in category.items %}
+
+                        <div class="pantry-item">
+
+                            <span class="item-name">{{ item.name.name }}</span>
+
+                            <span class="item-quantity">{{ item.quantity }} {{ item.unit }}</span>
+
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p class="empty-pantry">Your pantry is empty.</p>
+
+    {% endif %}
+
+        <a href="{% url 'add_pantry_item' %}"class="add-button">
+            + Add Item
+        </a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/my_recipe_detail.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<div class="recipe-detail-page">
+
+    <a href="{% url 'my_shopping_list' recipe.id %}" class="shopping-button">
+        View missing ingredients
+    </a>
+
+    <div class="recipe-detail-card">
+
+        <div class="recipe-detail-content">
+
+            <h1>{{ recipe.name }}</h1>
+
+            <div class="recipe-section">
+
+                <h2>Ingredients</h2>
+
+                <ul class="ingredient-list">
+
+                    {% for item in ingredients %}
+
+                        <li>
+                            {{ item.quantity }} {{ item.unit }}
+                            {{ item.ingredient.name }}
+                        </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+            <div class="recipe-section">
+
+                <h2>Instructions</h2>
+
+                <div class="instructions">
+                    {{ recipe.instructions }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

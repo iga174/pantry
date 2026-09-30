@@ -1,0 +1,113 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/add_pantry_item.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<main class="page">
+
+    <div class="page-header">
+
+        <a href="{% url 'pantry' %}" class="back-link">← Pantry</a>
+
+        <h1>Add an item</h1>
+
+        <p>Add something that's currently in your pantry.</p>
+
+    </div>
+
+    <form method="POST" class="item-form">
+
+        {% csrf_token %}
+
+        <div class="form-field">
+
+            <label for="ingredient">Ingredient</label>
+
+            <input type="text" id="ingredient"
+                name="ingredient"
+                placeholder="e.g. Milk"
+                autocomplete="off"
+                required>
+
+        </div>
+
+        <div class="form-field">
+
+            <label for="quantity">Quantity</label>
+
+            <div class="quantity-group">
+
+                <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    placeholder="1"
+                    min="0"
+                    step="0.01"
+                    required>
+
+                <select name="unit" id="unit" required>
+                    <option value="" disabled selected>Unit</option>
+
+                    <option value="g">g</option>
+
+                    <option value="ml">ml</option>
+
+                    <option value="pcs">pcs</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="form-field">
+
+            <label for="category">Category</label>
+
+            <select name="category" id="category" required>
+
+                <option value="" disabled selected>Choose a category</option>
+
+                <option value="fridge">Fridge</option>
+
+                <option value="fruit_vegetables">Fruit & Vegetables</option>
+
+                <option value="meat_fish">Meat & Fish</option>
+
+                <option value="grains_bakery">Grains & Bakery</option>
+
+                <option value="canned_dry">Canned & Dry Goods</option>
+
+                <option value="spices">Spices</option>
+
+                <option value="sauces_condiments">Sauces & Condiments</option>
+
+                <option value="snacks">Snacks</option>
+
+                <option value="drinks">Drinks</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-actions">
+
+            <a href="{% url 'pantry' %}" class="cancel-button">
+                Cancel
+            </a>
+
+            <button type="submit" class="submit-button">
+                Add item
+            </button>
+
+        </div>
+
+    </form>
+
+</main>
+
+{% endblock %}

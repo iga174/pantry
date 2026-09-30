@@ -1,0 +1,68 @@
+{% extends "pantry/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'recipes/recipe_detail.css' %}">
+{% endblock %}
+
+{% block body %}
+
+<form action="{% url 'shopping_list_api' meal.idMeal %}" method="post">
+
+    {% csrf_token %}
+
+    <button type="submit" class="shopping-button">View missing ingredients</button>
+
+</form>
+
+<div class="recipe-page">
+
+    <a href="{% url 'recipes' %}" class="back-link"> ← Back to Recipes </a>
+
+
+    <div class="recipe-card">
+
+        <img
+            src="{{ meal.strMealThumb }}"
+            alt="{{ meal.strMeal }}"
+            class="recipe-image">
+
+        <div class="recipe-content">
+
+            <h1>{{ meal.strMeal }}</h1>
+
+            <p class="recipe-info">{{ meal.strCategory }} • {{ meal.strArea }}</p>
+
+        </div>
+
+    </div>
+
+
+    <section class="recipe-section">
+
+        <h2>Ingredients</h2>
+
+        <ul class="ingredients">
+
+            {% for item in ingredients %}
+                <li>{{ item.measure }} {{ item.ingredient }}</li>
+            {% endfor %}
+
+        </ul>
+
+    </section>
+
+
+    <section class="recipe-section">
+
+        <h2>Instructions</h2>
+
+        <div class="instructions">
+            {{ meal.strInstructions }}
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

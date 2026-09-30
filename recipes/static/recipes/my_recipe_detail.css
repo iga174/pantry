@@ -1,0 +1,69 @@
+.recipe-detail-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.recipe-detail-card {
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.recipe-detail-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+.recipe-detail-content {
+    padding: 30px;
+}
+
+.recipe-detail-content h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+}
+
+.recipe-section {
+    margin-top: 30px;
+}
+
+.recipe-section h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.ingredient-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.ingredient-list li {
+    margin-bottom: 8px;
+}
+
+.instructions {
+    white-space: pre-line;
+    line-height: 1.6;
+}
+
+.shopping-button {
+    border: none;
+    background: #e75480;
+    color: white;
+    padding: 14px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.shopping-button:hover {
+    background: #d9436d;
+}
